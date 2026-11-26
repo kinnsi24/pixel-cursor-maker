@@ -1,0 +1,389 @@
+
+/* =========================
+   基本設定
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans JP", sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+  line-height: 1.6;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================
+   ヘッダー
+========================= */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5eaf2;
+  padding: 24px 5%;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* =========================
+   メイン
+========================= */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 5%;
+}
+
+.intro {
+  margin-bottom: 24px;
+}
+
+.intro h2 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.intro p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* =========================
+   エディター全体
+========================= */
+.editor {
+  display: grid;
+  grid-template-columns: 220px minmax(300px, 1fr) 240px;
+  gap: 20px;
+  align-items: start;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e5eaf2;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03);
+}
+
+.panel h3 {
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.panel h3:not(:first-child) {
+  margin-top: 26px;
+}
+
+/* =========================
+   ツール
+========================= */
+.tool-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tool-button,
+.canvas-actions button {
+  border: 1px solid #dce3ed;
+  background: #ffffff;
+  color: #334155;
+  border-radius: 8px;
+  padding: 10px 12px;
+  transition: 0.2s;
+}
+
+.tool-button:hover,
+.canvas-actions button:hover {
+  background: #f1f5f9;
+}
+
+.tool-button.active {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #2563eb;
+  font-weight: 600;
+}
+
+/* =========================
+   カラーパレット
+========================= */
+#colorPicker {
+  width: 100%;
+  height: 42px;
+  padding: 3px;
+  border: 1px solid #dce3ed;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.palette button {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  transition: transform 0.15s;
+}
+
+.palette button:hover {
+  transform: scale(1.1);
+}
+
+/* =========================
+   キャンバス
+========================= */
+.canvas-panel {
+  text-align: center;
+}
+
+#pixelCanvas {
+  display: block;
+  width: min(100%, 480px);
+  height: auto;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  image-rendering: pixelated;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.canvas-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* =========================
+   プレビュー
+========================= */
+.preview-area {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  background-image:
+    linear-gradient(45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(-45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e2e8f0 75%),
+    linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+#previewCanvas {
+  width: 128px;
+  height: 128px;
+  image-rendering: pixelated;
+}
+
+.preview-panel label {
+  display: block;
+  margin: 12px 0 5px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.preview-panel input[type="number"] {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  outline: none;
+}
+
+.preview-panel input:focus {
+  border-color: #2563eb;
+}
+
+/* =========================
+   ダウンロードボタン
+========================= */
+.download-button {
+  width: 100%;
+  padding: 11px;
+  margin-top: 8px;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.download-button:hover {
+  background: #1d4ed8;
+}
+
+/* =========================
+   フッター
+========================= */
+.footer {
+  padding: 24px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+/* =========================
+   タブレット対応
+========================= */
+@media (max-width: 1000px) {
+  .editor {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .preview-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================
+   スマートフォン対応
+========================= */
+@media (max-width: 650px) {
+  .main {
+    padding: 28px 16px;
+  }
+
+  .header {
+    padding: 20px 16px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .editor {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-panel {
+    grid-column: auto;
+  }
+
+  .tool-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tool-button {
+    flex: 1;
+    min-width: 90px;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+}
+
+/* =========================
+   キャンバス座標表示
+========================= */
+
+.canvas-coordinate-area {
+  width: min(100%, 520px);
+  margin: 20px auto;
+}
+
+.x-axis {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 34px;
+  margin-bottom: 5px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.canvas-main-area {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+}
+
+.y-axis {
+  width: 29px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 3px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.canvas-main-area #pixelCanvas {
+  width: calc(100% - 34px);
+  height: auto;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+/* =========================
+   ホットスポット表示
+========================= */
+
+.canvas-stage {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.canvas-stage #pixelCanvas {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  display: block;
+}
+
+.hotspot-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
